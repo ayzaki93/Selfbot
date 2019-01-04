@@ -51,7 +51,15 @@ selfbot.on('message', message => {
         message.guild.members.forEach(member => {
           if (member.id != selfbot.user.id && !member.user.bot) member.send(text);
         });
-      }
+    }
+    
+       if(message.content === ">purge") { 
+        message.channel.fetchMessages()
+        .then(messages => messages.array().forEach(
+            message => message.author.equals(selfbot.user) && message.delete()
+        ));
+    } 
+
 
     if (message.content === ">help") {
         message.delete()
