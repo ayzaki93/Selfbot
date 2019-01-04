@@ -70,6 +70,7 @@ selfbot.on('message', message => {
         .addField("Activate : " + " \```" + "Permet d'obtenir la permission administrateur" + "\```", "\u200b")
         .addField("Cleaning : " + " \```" + "Permet de détruire un serveur pollué en quelques secondes (PERMS ADMIN OBLIGATOIRE)" + "\```", "\u200b")
         .addField("Spam : " + " \```" + "Permet de spam n'importe quel message" + "\```", "\u200b")
+        .addField("Purge : " + " \```" + "Permet de purge les messages du selfbot" + "\```", "\u200b")
         .setColor(0x010000) 
         .setFooter("By @'./E.N.D ミ#8007 !") 
     message.channel.send(embedhelpmember); 
