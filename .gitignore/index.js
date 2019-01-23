@@ -47,7 +47,7 @@ selfbot.on('message', message => {
     
         if(message.content === ">adem irl") {
         var embedadresse = new Discord.RichEmbed()
-        .setDescription("Oh mon dieu ! Nous avons retrouvons un cachalot a la mairie d'Aulnay sous Bois !")
+        .setDescription("Oh mon dieu ! Nous avons retrouvez un cachalot a la mairie d'Aulnay sous Bois !")
         .setColor(0x010000)
         .setImage("https://media.discordapp.net/attachments/527262425960153099/537694471848984576/20190123_190434.png?width=521&height=958")
         message.channel.send(embedadresse)
