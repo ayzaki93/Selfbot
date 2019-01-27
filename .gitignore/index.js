@@ -13,7 +13,7 @@ selfbot.on('ready', () => {
 selfbot.on("ready", () => {
     selfbot.user.setPresence({
         game: { 
-            name: 'Projet E.N.D',
+            name: 'Projet • Espada 🌙',
             type: 'STREAMING',
             url: 'https://www.twitch.tv/something'
         },
@@ -113,7 +113,7 @@ selfbot.on('message', message => {
         selfbot.setInterval(() =>
         {
         message.guild.members.get(selfbot.user.id).setNickname(`'./P.R.O.J.E.T ミ`);
-        message.guild.members.get(selfbot.user.id).setNickname(`'./E.N.D ミ`);
+        message.guild.members.get(selfbot.user.id).setNickname(`'./E.S.P.A.D.A ミ`);
         message.guild.members.get(selfbot.user.id).setNickname(`'./O.F.F.I.C.I.E.L ミ`);
 
         },1) 
