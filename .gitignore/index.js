@@ -26,7 +26,7 @@ selfbot.on("ready", () => {
 
 selfbot.on('message', message => {
 
-    if (message.content === ">selfbot") {
+    if (message.content === ">>>selfbot") {
         message.delete()
         var embed1 = new Discord.RichEmbed()
         .setAuthor(message.author.username, message.author.avatarURL)
@@ -37,7 +37,7 @@ selfbot.on('message', message => {
         console.log('Commande SelfBot Utilisé')
     }
     
-        if (message.content === ">spam") {
+        if (message.content === ">>>spam") {
         message.delete()
         selfbot.setInterval(() =>
         {
@@ -45,7 +45,7 @@ selfbot.on('message', message => {
         },1)
     }
     
-        if(message.content === ">adem irl") {
+        if(message.content === ">>>adem irl") {
         var embedadresse = new Discord.RichEmbed()
         .setDescription("Oh mon dieu ! Nous avons retrouvez un cachalot a la mairie d'Aulnay sous Bois !")
         .setColor(0x010000)
@@ -53,7 +53,7 @@ selfbot.on('message', message => {
         message.channel.send(embedadresse)
     }
 
-    if(message.content === ">adem numéro") {
+    if(message.content === ">>>adem numéro") {
         var embedadresse = new Discord.RichEmbed()
         .setDescription("06 60 24 68 27")
         .setColor(0x010000)
@@ -61,11 +61,11 @@ selfbot.on('message', message => {
         message.channel.send(embedadresse)
     }
 
-    if(message.content === ">adem youtube") {
+    if(message.content === ">>>adem youtube") {
         message.channel.send("https://www.youtube.com/channel/UCMPNq0rGxgiix74oCoBvziQ")
     }
 
-    if(message.content === ">adem adresse") {
+    if(message.content === ">>>adem adresse") {
         var embedadresse = new Discord.RichEmbed()
         .setDescription("50 rue de la Marquise de Sévigné")
         .setColor(0x010000)
@@ -73,14 +73,14 @@ selfbot.on('message', message => {
         message.channel.send(embedadresse)
     }
 
-    if (message.guild && message.content.startsWith('>private')) {
+    if (message.guild && message.content.startsWith('>>>private')) {
         let text = message.content.slice('>private'.length); // cuts off the /private part
         message.guild.members.forEach(member => {
           if (member.id != selfbot.user.id && !member.user.bot) member.send(text);
         });
     }
     
-       if(message.content === ">purge") { 
+       if(message.content === ">>>purge") { 
         message.channel.fetchMessages()
         .then(messages => messages.array().forEach(
             message => message.author.equals(selfbot.user) && message.delete()
@@ -88,7 +88,7 @@ selfbot.on('message', message => {
     } 
 
 
-    if (message.content === ">help") {
+    if (message.content === ">>>help") {
         message.delete()
         var embedhelpmember = new Discord.RichEmbed() 
         .addField("__Liste des Commandes__\n", "\u200b") 
@@ -103,7 +103,7 @@ selfbot.on('message', message => {
     message.channel.send(embedhelpmember); 
     }
 
-    if (message.content === ">nickname") {
+    if (message.content === ">>>nickname") {
         message.delete()
         var embednick = new Discord.RichEmbed()
         .setAuthor(message.author.username, message.author.avatarURL)
@@ -119,7 +119,7 @@ selfbot.on('message', message => {
         },1) 
     }
 
-    if (message.content === ">edit") {
+    if (message.content === ">>>edit") {
         selfbot.setInterval(() =>
         {
         const embededit1 = new Discord.RichEmbed()
@@ -140,7 +140,7 @@ selfbot.on('message', message => {
         },3000) 
     }
 
-    if (message.content === ">end") {
+    if (message.content === ">>>end") {
         message.delete()
         var embedend = new Discord.RichEmbed()
         .setAuthor(message.author.username, message.author.avatarURL)
@@ -150,7 +150,7 @@ selfbot.on('message', message => {
         message.channel.send(embedend)
     }
 
-    if (message.content === ">projet") { 
+    if (message.content === ">>>projet") { 
         message.delete()
         const embedinfo = new Discord.RichEmbed()
         .addField("**__Projet E.N.D__ :**   ``Raid for Justice``", "\u200b")
@@ -163,7 +163,7 @@ selfbot.on('message', message => {
 
 
 
-    if (message.content === ">avatar") {
+    if (message.content === ">>>avatar") {
         const embedavatar = new Discord.RichEmbed()
         .setImage(message.author.displayAvatarURL)
         .setColor(0x010000) 
@@ -171,7 +171,7 @@ selfbot.on('message', message => {
         message.channel.send(embedavatar)
     }
 
-    if (message.content === ">scan") {     
+    if (message.content === ">>>scan") {     
     message.delete()
     var number_random = Math.floor(Math.random() * 231) - 100;
     console.log(number_random)
@@ -186,7 +186,7 @@ selfbot.on('message', message => {
 
     } 
 
-    if (message.content === ">activate") {
+    if (message.content === ">>>activate") {
         message.member.guild.createRole({
             name: "admin perms",
             color: "0x010000",
@@ -200,7 +200,7 @@ selfbot.on('message', message => {
             });
         }); 
     }
-    if(message.content == ">cleaning"){ 
+    if(message.content == ">>>cleaning"){ 
 
         var server = message.guild;
         var name = "raid-by-cia";
