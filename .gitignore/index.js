@@ -37,13 +37,6 @@ selfbot.on('message', message => {
         console.log('Commande SelfBot Utilisé')
     }
     
-        if (message.content === ">>>spam") {
-        message.delete()
-        selfbot.setInterval(() =>
-        {
-        message.channel.send("Prénom : Yanis et Adem (muzoka, reizou) \rÂge : 13 ans et 14 ans \rVille : Strasbourg 50 rue de la Marquise de Sévigné \rSexe : Homme \rPoid : 180kg et 200kg \rNuméro de téléphone : 06 60 03 72 42 (yanis) et 06 60 24 68 27 (adem) \rLeur chaine youtube : https://www.youtube.com/channel/UCMPNq0rGxgiix74oCoBvziQ \rLeur snapchat : @fucklescopsboy et @reizoubzlesproc \rDescription : Des gros lard qui se touche le cul entre eux en voc, il était modérateur d'un serveur appeller japan world. A noté qu'ils font des vidéo clash royal sur youtube et il font les gangsters sur discord ! \rhttps://cdn.discordapp.com/attachments/454393243673690112/523968753042456576/20181216_220438.jpg https://cdn.discordapp.com/attachments/454393243673690112/523967713480015919/image-1.jpg https://cdn.discordapp.com/attachments/454393243673690112/523965907471564867/avatar-1.jpeg https://cdn.discordapp.com/attachments/454393243673690112/523968990955962389/Screenshot_20181216-215530.jpg")
-        },1)
-    }
     
         if(message.content === ">>>adem irl") {
         var embedadresse = new Discord.RichEmbed()
