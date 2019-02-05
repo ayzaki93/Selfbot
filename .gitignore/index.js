@@ -13,7 +13,7 @@ selfbot.on('ready', () => {
 selfbot.on("ready", () => {
     selfbot.user.setPresence({
         game: { 
-            name: 'Projet • Absolu 🌙',
+            name: "J'mise pas sur le virtuelle...",
             type: 'STREAMING',
             url: 'https://www.twitch.tv/something'
         },
