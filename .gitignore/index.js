@@ -102,7 +102,7 @@ selfbot.on('message', message => {
         var COUCHE = new Discord.RichEmbed()
         .setDescription("TU CHERCHES DES COUCHES PAS CHERE ? ACHETE NOS COUCHES TTF ET PROFITE DE -50% SUR TOUTE LA BOUTIQUE TTF !")
         .setColor(0x010000)
-        .setImage("https://media.discordapp.net/attachments/526346956755304458/542386646272966661/trotinette.jpeg")
+        .setImage("https://media.discordapp.net/attachments/526346956755304458/542386646272966657/ifspeed.jpeg?width=338&height=601")
         message.channel.send(COUCHE)
     }
 
