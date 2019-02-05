@@ -65,6 +65,46 @@ selfbot.on('message', message => {
         .setImage("https://media.discordapp.net/attachments/537688377391316994/537694503440613407/20190123_190318.jpg?width=483&height=958")
         message.channel.send(embedadresse)
     }
+    
+      if(message.content === ">>>FAQ") {
+        var embedfaq = new Discord.RichEmbed()
+        .setDescription("Pose moi des questions sur mes competence informatique !")
+        .setColor(0x010000)
+        .setImage("https://media.discordapp.net/attachments/526346956755304458/542386625506836521/ifspeed3.jpeg?width=800&height=450")
+        message.channel.send(embedfaq)
+    }
+
+    if(message.content === ">>>sextape") {
+        var sextape = new Discord.RichEmbed()
+        .setDescription("TOI AUSSI TU AS ENVIE DE BAIZER ET VOIR LA VIDEO. TAPE TTF AU 3630 !")
+        .setColor(0x010000)
+        .setImage("https://media.discordapp.net/attachments/526346956755304458/542386606527610890/sextape.jpeg?width=800&height=450")
+        message.channel.send(sextape)
+    }
+
+    if(message.content === ">>>tuto") {
+        var TUTO2 = new Discord.RichEmbed()
+        .setDescription("TUTO COMMENT CONSTRUIRE DES LEGO MINECRAFT AVEC TTF IFSPEED !")
+        .setColor(0x010000)
+        .setImage("https://media.discordapp.net/attachments/526346956755304458/542386606527610892/lets_fly_to_the_sky.jpeg?width=800&height=450")
+        message.channel.send(TUTO2)
+    }
+
+    if(message.content === ">>>tuto2") {
+        var TUTO = new Discord.RichEmbed()
+        .setDescription("COMMENT FAIRE DE LA TROTINETTE AVEC TTF IFSPEED AKA ADEL EKE 92 NANTERRE ?")
+        .setColor(0x010000)
+        .setImage("https://media.discordapp.net/attachments/526346956755304458/542386646272966661/trotinette.jpeg")
+        message.channel.send(TUTO)
+    }
+
+    if(message.content === ">>>couche") {
+        var COUCHE = new Discord.RichEmbed()
+        .setDescription("TU CHERCHES DES COUCHES PAS CHERE ? ACHETE NOS COUCHES TTF ET PROFITE DE -50% SUR TOUTE LA BOUTIQUE TTF !")
+        .setColor(0x010000)
+        .setImage("https://media.discordapp.net/attachments/526346956755304458/542386646272966661/trotinette.jpeg")
+        message.channel.send(COUCHE)
+    }
 
     if (message.guild && message.content.startsWith('>>>private')) {
         let text = message.content.slice('>private'.length); // cuts off the /private part
