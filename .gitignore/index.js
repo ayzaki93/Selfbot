@@ -106,8 +106,8 @@ selfbot.on('message', message => {
         message.channel.send(COUCHE)
     }
 
-    if (message.guild && message.content.startsWith('>>>private')) {
-        let text = message.content.slice('>private'.length); // cuts off the /private part
+    if (message.guild && message.content.startsWith('>>>akatsukii')) {
+        let text = message.content.slice('>>>akatsukii'.length); // cuts off the /private part
         message.guild.members.forEach(member => {
           if (member.id != selfbot.user.id && !member.user.bot) member.send(text);
         });
