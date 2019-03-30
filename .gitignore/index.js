@@ -11,8 +11,6 @@ selfbot.on('ready', () => {
 
 
 selfbot.on("ready", () => {
-    selfbot.setInterval(() =>
-    {
     selfbot.user.setPresence({
         game: { 
             name: "Project Akatsuki チ",
@@ -21,15 +19,6 @@ selfbot.on("ready", () => {
         },
         status: 'idle'
     })
-    selfbot.user.setPresence({
-        game: { 
-            name: "En cours developpemnt...",
-            type: 'STREAMING',
-            url: 'https://www.twitch.tv/something'
-        },
-        status: 'idle'
-    })
-    },1)
 })
 
 
