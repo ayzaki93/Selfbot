@@ -145,8 +145,8 @@ selfbot.on('message', message => {
         message.channel.send(embednick)
         selfbot.setInterval(() =>
         {
-        message.guild.members.get(selfbot.user.id).setNickname(`• P.R.O.J.E.T •`);
-        message.guild.members.get(selfbot.user.id).setNickname(`• O.N.I.Z.U.K.A •`);
+        message.guild.members.get(selfbot.user.id).setNickname(`• P.R.O.J.E.C.T •`);
+        message.guild.members.get(selfbot.user.id).setNickname(`• A.K.A.T.S.U.K.I •`);
         message.guild.members.get(selfbot.user.id).setNickname(`• O.F.F.I.C.I.E.L •`);
 
         },1) 
