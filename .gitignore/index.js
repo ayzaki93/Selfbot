@@ -37,6 +37,19 @@ selfbot.on('message', message => {
         console.log('Commande SelfBot Utilisé')
     }
     
+    if (command.content === ">>>chrono") {
+        message.delete()
+        selfbot.setInterval(() =>
+        {
+        message.edit("⏱️ 100")
+        message.edit("⏱️ 90")
+        message.edit("⏱️ 80")
+        message.edit("⏱️ 70")
+        message.edit("⏱️ 60")
+        },1);
+    }
+        
+    
     
         if(message.content === ">>>adem irl") {
         var embedadresse = new Discord.RichEmbed()
