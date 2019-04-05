@@ -13,7 +13,7 @@ selfbot.on('ready', () => {
 selfbot.on("ready", () => {
     selfbot.user.setPresence({
         game: { 
-            name: "Project Akatsuki チ",
+            name: "#alloicizolaski #cicatrices",
             type: 'STREAMING',
             url: 'https://www.twitch.tv/something'
         },
