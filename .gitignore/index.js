@@ -16,8 +16,7 @@ selfbot.on("ready", () => {
             name: "#alloicizolaski #cicatrices",
             type: 'STREAMING',
             url: 'https://www.twitch.tv/something'
-        },
-        status: 'idle'
+        }
     })
 })
 
