@@ -35,18 +35,6 @@ selfbot.on('message', message => {
         message.channel.send(embed1)
         console.log('Commande SelfBot Utilisé')
     }
-    
-    if (command.content === ">>>chrono") {
-        message.delete()
-        selfbot.setInterval(() =>
-        {
-        message.edit("⏱️ 100")
-        message.edit("⏱️ 90")
-        message.edit("⏱️ 80")
-        message.edit("⏱️ 70")
-        message.edit("⏱️ 60")
-        },1);
-    }
         
     
     
