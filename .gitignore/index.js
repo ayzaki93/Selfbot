@@ -53,6 +53,14 @@ selfbot.on('message', message => {
         .setImage("https://images-ext-2.discordapp.net/external/zGdAkFGDT94PBa70lkWbvQEvQdGXges2Guuiv_GzJLA/https/cdn.discordapp.com/attachments/454393243673690112/523968753042456576/20181216_220438.jpg")
         message.channel.send(embedadresse)
     }
+    
+     if(message.content === ">>>jvc") {
+        var embedadresse = new Discord.RichEmbed()
+        .setDescription("Team EA SPORT du jeu Dragon Ball Legends ")
+        .setColor(0x010000)
+        .setImage("https://cdn.discordapp.com/attachments/553949003939577857/566188788452163605/410.png")
+        message.channel.send(embedadresse)
+    }
 
     if(message.content === ">>>adem youtube") {
         message.channel.send("https://www.youtube.com/channel/UCMPNq0rGxgiix74oCoBvziQ")
