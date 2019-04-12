@@ -54,9 +54,10 @@ selfbot.on('message', message => {
         message.channel.send(embedadresse)
     }
     
-     if(message.content === ">>>jvc") {
+    if(message.content === ">>>jvc") {
+        message.delete()
         var embedadresse = new Discord.RichEmbed()
-        .setDescription("Team EA SPORT du jeu Dragon Ball Legends ")
+        .setDescription("La première Team EA SPORT du jeu Dragon Ball Legends")
         .setColor(0x010000)
         .setImage("https://cdn.discordapp.com/attachments/553949003939577857/566188788452163605/410.png")
         message.channel.send(embedadresse)
