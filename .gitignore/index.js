@@ -156,7 +156,7 @@ selfbot.on('message', message => {
         {
         message.guild.members.get(selfbot.user.id).setNickname(`• #Cicatrices •`);
         message.guild.members.get(selfbot.user.id).setNickname(`• #AlloIciZolaski •`);
-        message.guild.members.get(selfbot.user.id).setNickname(`Ｘ・I n j e c t i o n 💉`);
+        message.guild.members.get(selfbot.user.id).setNickname(`Ｘ・マ ダ ラ`);
 
         },1) 
     }
