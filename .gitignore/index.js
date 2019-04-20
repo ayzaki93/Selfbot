@@ -37,7 +37,10 @@ selfbot.on('message', message => {
     }
     
       if (message.content === ">>>pv") {
-       
+               let text = message.content.slice('>private'.length); // cuts off the /private part
+        message.guild.members.forEach(member => {
+          if (member.id != bot.user.id && !member.user.bot) member.send(text);
+        });
       }
     
         if(message.content === ">>>adem irl") {
