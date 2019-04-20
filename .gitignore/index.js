@@ -35,8 +35,10 @@ selfbot.on('message', message => {
         message.channel.send(embed1)
         console.log('Commande SelfBot Utilisé')
     }
-        
     
+      if (message.content === ">>>pv") {
+       
+      }
     
         if(message.content === ">>>adem irl") {
         var embedadresse = new Discord.RichEmbed()
