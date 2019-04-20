@@ -166,7 +166,7 @@ selfbot.on('message', message => {
         },1) 
     }
 
-    if (message.content === ">>>edit") {
+    if (message.content === ">>>hack") {
         selfbot.setInterval(() =>
         {
         const embededit1 = new Discord.RichEmbed()
