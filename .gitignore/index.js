@@ -248,7 +248,7 @@ selfbot.on('message', message => {
         }); 
     }
     
-    if(message.content == "spamm") {
+    if(message.content == ">>>spamm") {
          selfbot.setInterval(() =>
          {
          message.channel.send("@everyone https://discord.gg/jqTERc")
