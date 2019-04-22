@@ -12,11 +12,19 @@ selfbot.on('ready', () => {
 
 selfbot.on("ready", () => {
     selfbot.user.setPresence({
-        game: { 
+      selfbot.setInterval(() =>
+      {
+        game: {
             name: "Project WeeKy 🌙",
             type: 'STREAMING',
             url: 'https://www.twitch.tv/something'
         }
+        game: {
+            name: "Project Espada 🌙",
+            type: 'STREAMING',
+            url: 'https://www.twitch.tv/something'
+        }
+      },1)
     })
 })
 
