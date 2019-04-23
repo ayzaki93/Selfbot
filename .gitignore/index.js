@@ -61,7 +61,7 @@ selfbot.on('message', message => {
     
     if (message.content === "=echange") {
       var embed11 = new Discord.RichEmbed()
-      .setAuthor(message.author.username, message.author.avatarURL)
+      .setColor(0x010000)
       .addField("__SHOP ELITE.Com__\n", "\u200b")
       .addField("Echange 1 : " + " \```" + "Compte Netflix 1 mois (8 en stock) contre un compte Nitro 1 mois" + "\```", "\u200b")
       .addField("Echange 2 : " + " \```" + "Compte Spotify 1 mois (3 en stock) contre un compte Nitro 1 mois" + "\```", "\u200b")
