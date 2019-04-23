@@ -55,9 +55,9 @@ selfbot.on('message', message => {
       .addField("Steam : " + " \```" + "Carte Steam : 5€, 10€, 20€" + "\```", "\u200b")
       .setFooter('PROMO POUR LES NEWS ADHÉRANTS -20% !')
       .setImage('https://media.discordapp.net/attachments/556773491274154004/570159965046702081/shopelite.com.jpeg')
-      message.channel.edit(":preloader: `chargement en cours...`").setInterval(() => {
-         message.channel.edit(embed10)
-      },10000)
+      message.channel.edit(":preloader: `chargement en cours...`")
+      message.delete
+      message.channel.send(embed10)
     }
 
     if (message.content === "=echange") {
