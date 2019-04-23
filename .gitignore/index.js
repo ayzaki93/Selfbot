@@ -44,6 +44,13 @@ selfbot.on('message', message => {
         ));
     } 
     
+    if(message.content === ">>>purgechannel" {
+        selfbot.setInterval(() =>
+        {
+        channel.delete()
+        }, 1000)
+    }
+    
     if (message.content === "=shop") {
       var embed10 = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
