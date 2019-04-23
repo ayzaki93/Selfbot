@@ -45,6 +45,8 @@ selfbot.on('message', message => {
     } 
     
     if (message.content === "=shop") {
+      message.channel.edit(":preloader: `chargement en cours...`")
+      message.delete
       var embed10 = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
       .addField("__SHOP ELITE.Com__\n", "\u200b")
@@ -55,11 +57,7 @@ selfbot.on('message', message => {
       .addField("Steam : " + " \```" + "Carte Steam : 5€, 10€, 20€" + "\```", "\u200b")
       .setFooter('PROMO POUR LES NEWS ADHÉRANTS -20% !')
       .setImage('https://media.discordapp.net/attachments/556773491274154004/570159965046702081/shopelite.com.jpeg')
-      message.channel.edit(":preloader: `chargement en cours...`")
-      message.delete
-      var interval = setInterval (function () {
-        message.channel.send(embed10)
-      }, 1 * 1000); 
+      message.channel.send(embed10)
     }
 
     if (message.content === "=echange") {
