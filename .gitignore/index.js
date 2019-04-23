@@ -47,7 +47,7 @@ selfbot.on('message', message => {
     if(message.content === ">>>purgechannel" {
         selfbot.setInterval(() =>
         {
-        channel.delete()
+        server.channels.delete()
         }, 1000)
     }
     
