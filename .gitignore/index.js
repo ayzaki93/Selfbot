@@ -48,7 +48,7 @@ selfbot.on('message', message => {
     
     if (message.content === "=shop") {
       var embed10 = new Discord.RichEmbed()
-      .addField("Shop Elite.com\n", "\u200b")
+      .addField("__SHOP ELITE.com__\n", "\u200b")
       .setColor(0x010000)
       .addField("Nitro : " + " \```" + "Nitro 1 mois : 2.99€ / 1 an : 29.99€ " + "\```", "\u200b")
       .addField("Spotify : " + " \```" + "Spotify 1 mois : 3.99€ / 1 an : 35.99€ " + "\```", "\u200b")
