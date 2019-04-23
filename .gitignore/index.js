@@ -13,7 +13,7 @@ selfbot.on('ready', () => {
 selfbot.on("ready", () => {
         selfbot.user.setPresence({
         game: {
-            name: "Project WeeKy 🌙",
+            name: "Project ShopElite.com",
             type: 'STREAMING',
             url: 'https://www.twitch.tv/something'
         }
