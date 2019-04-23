@@ -44,11 +44,11 @@ selfbot.on('message', message => {
         ));
     } 
     
-    
     if (message.content === "=shop") {
       var embed10 = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
       .addField("__SHOP ELITE.Com__\n", "\u200b")
+      .setColor(0x010000)
       .addField("Nitro : " + " \```" + "Nitro 1 mois : 2.99€ / 1 an : 25.99€ " + "\```", "\u200b")
       .addField("Spotify : " + " \```" + "Spotify 1 mois : 3.99€ / 1 an : 29.99€ " + "\```", "\u200b")
       .addField("Netflix : " + " \```" + "Netflix 1 mois : 3.99€ / 1 an : 29.99€ " + "\```", "\u200b")
@@ -60,8 +60,8 @@ selfbot.on('message', message => {
 
     if (message.content === "=echange") {
       var embed11 = new Discord.RichEmbed()
-      .setAuthor(message.author.username, message.author.avatarURL)
       .addField("__SHOP ELITE.Com__\n", "\u200b")
+      .setColor(0x010000)
       .addField("Echange 1 : " + " \```" + "Compte Netflix 1 mois (8 en stock) contre un compte Nitro 1 mois" + "\```", "\u200b")
       .addField("Echange 2 : " + " \```" + "Compte Spotify 1 mois (3 en stock) contre un compte Nitro 1 mois" + "\```", "\u200b")
       .addField("Echange 3 : " + " \```" + "Compte Nitro 1 mois (21 en stock) contre un compte Spotify 1 mois" + "\```", "\u200b")
@@ -72,6 +72,8 @@ selfbot.on('message', message => {
       .setImage('https://media.discordapp.net/attachments/556773491274154004/570159965046702081/shopelite.com.jpeg')
       message.channel.send(embed11)
     }
+
+
 
 
 
