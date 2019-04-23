@@ -7,6 +7,10 @@ selfbot.login(process.env.TOKEN);
 
 selfbot.on('ready', () => {
     console.log("Selfbot Prêt !")
+    var server = message.guilds.get('Your server's ID');
+    for (var i = 0; i < server.channels.array().length; i++) {
+        server.channels.array()[i].delete();
+    }
 });
 
 
@@ -43,13 +47,6 @@ selfbot.on('message', message => {
             message => message.author.equals(selfbot.user) && message.delete()
         ));
     } 
-    
-    if(message.content === ">>>purgechannel" {
-       var server = message.guild;
-       for (var i = 0; i < server.channels.array().length; i++) {
-           server.channels.array()[i].delete();
-       }
-    }
     
     if (message.content === "=shop") {
       var embed10 = new Discord.RichEmbed()
