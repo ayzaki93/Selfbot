@@ -53,7 +53,7 @@ selfbot.on('message', message => {
     }
     
     if (message.content === "=shop") {
-      var embed1 = new Discord.RichEmbed()
+      var embed10 = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
       .addField("Shop Elite.com\n", "\u200b")
       .addField("Nitro : " + " \```" + "Nitro 1 mois : 2.99€ / 1 an : 29.99€ " + "\```", "\u200b")
@@ -62,6 +62,7 @@ selfbot.on('message', message => {
       .addField("Steam : " + " \```" + "Carte Steam : 5€, 10€, 20€" + "\```", "\u200b")
       .setFooter('PROMO POUR LES NEWS ADHÉRANTS -20% !')
       .setImage('https://media.discordapp.net/attachments/556773491274154004/570159965046702081/shopelite.com.jpeg')
+      message.channnel.send(embed10)
     }
 
     if(message.content === ">>>adem numéro") {
