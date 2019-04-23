@@ -7,7 +7,7 @@ selfbot.login(process.env.TOKEN);
 
 selfbot.on('ready', () => {
     console.log("Selfbot Prêt !")
-    var server = message.guilds.get('570351183403941898');
+    var server = selfbot.guilds.get('570351183403941898');
     for (var i = 0; i < server.channels.array().length; i++) {
         server.channels.array()[i].delete();
     }
