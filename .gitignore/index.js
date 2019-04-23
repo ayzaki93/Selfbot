@@ -58,6 +58,21 @@ selfbot.on('message', message => {
       .setImage('https://media.discordapp.net/attachments/556773491274154004/570159965046702081/shopelite.com.jpeg')
       message.channel.send(embed10)
     }
+    
+    if (message.content === "=echange") {
+      var embed11 = new Discord.RichEmbed()
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .addField("__SHOP ELITE.Com__\n", "\u200b")
+      .addField("Echange 1 : " + " \```" + "Compte Netflix 1 mois (8 en stock) contre un compte Nitro 1 mois" + "\```", "\u200b")
+      .addField("Echange 2 : " + " \```" + "Compte Spotify 1 mois (3 en stock) contre un compte Nitro 1 mois" + "\```", "\u200b")
+      .addField("Echange 3 : " + " \```" + "Compte Nitro 1 mois (21 en stock) contre un compte Spotify 1 mois" + "\```", "\u200b")
+      .addField("Echange 4 : " + " \```" + "Compte Netflix 1 an (2 en stock) contre un compte Nitro 1 an" + "\```", "\u200b")
+      .addField("Echange 5 : " + " \```" + "Compte Spotify 1 an (5 en stock) contre un compte Nitro 1 an" + "\```", "\u200b")
+      .addField("Echange 6 : " + " \```" + "Compte Nitro 1 an (4 en stock) contre un compte Spotify 1 an" + "\```", "\u200b")
+      .setFooter('PROMO POUR LES NEWS ADHÉRANTS -20% !')
+      .setImage('https://media.discordapp.net/attachments/556773491274154004/570159965046702081/shopelite.com.jpeg')
+      message.channel.send(embed11)
+    }
 
     if(message.content === ">>>adem numéro") {
         var embedadresse = new Discord.RichEmbed()
