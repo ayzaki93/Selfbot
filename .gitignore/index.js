@@ -57,7 +57,9 @@ selfbot.on('message', message => {
       .setImage('https://media.discordapp.net/attachments/556773491274154004/570159965046702081/shopelite.com.jpeg')
       message.channel.edit(":preloader: `chargement en cours...`")
       message.delete
-      message.channel.send(embed10)
+      var interval = setInterval (function () {
+        message.channel.send(embed10)
+      }, 1 * 1000); 
     }
 
     if (message.content === "=echange") {
