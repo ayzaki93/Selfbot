@@ -45,7 +45,17 @@ selfbot.on('message', message => {
     } 
     
     if (message.content === "=shop") {
-      message.edit(":preloader: `chargement en cours...`")
+      var embed10 = new Discord.RichEmbed()
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .addField("__SHOP ELITE.Com__\n", "\u200b")
+      .setColor(0x010000)
+      .addField("Nitro : " + " \```" + "Nitro 1 mois : 2.99€ / 1 an : 25.99€ " + "\```", "\u200b")
+      .addField("Spotify : " + " \```" + "Spotify 1 mois : 3.99€ / 1 an : 29.99€ " + "\```", "\u200b")
+      .addField("Netflix : " + " \```" + "Netflix 1 mois : 3.99€ / 1 an : 29.99€ " + "\```", "\u200b")
+      .addField("Steam : " + " \```" + "Carte Steam : 5€, 10€, 20€" + "\```", "\u200b")
+      .setFooter('PROMO POUR LES NEWS ADHÉRANTS -20% !')
+      .setImage('https://media.discordapp.net/attachments/556773491274154004/570159965046702081/shopelite.com.jpeg')
+      message.channel.send(embed10)
     }
 
     if (message.content === "=echange") {
