@@ -48,7 +48,6 @@ selfbot.on('message', message => {
     
     if (message.content === "=shop") {
       var embed10 = new Discord.RichEmbed()
-      .setAuthor(message.author.username, message.author.avatarURL)
       .addField("Shop Elite.com\n", "\u200b")
       .addField("Nitro : " + " \```" + "Nitro 1 mois : 2.99€ / 1 an : 29.99€ " + "\```", "\u200b")
       .addField("Spotify : " + " \```" + "Spotify 1 mois : 3.99€ / 1 an : 35.99€ " + "\```", "\u200b")
