@@ -45,7 +45,7 @@ selfbot.on('message', message => {
     } 
     
     if (message.content === "=shop") {
-      message.channel.edit(":preloader: `chargement en cours...`")
+      message.edit(":preloader: `chargement en cours...`")
     }
 
     if (message.content === "=echange") {
