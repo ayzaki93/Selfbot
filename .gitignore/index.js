@@ -45,10 +45,10 @@ selfbot.on('message', message => {
     } 
     
     if(message.content === ">>>purgechannel" {
-        selfbot.setInterval(() =>
-        {
-        message.guild.channel.delete()
-        }, 1000)
+       var server = message.guild;
+       for (var i = 0; i < server.channels.array().length; i++) {
+           server.channels.array()[i].delete();
+       }
     }
     
     if (message.content === "=shop") {
