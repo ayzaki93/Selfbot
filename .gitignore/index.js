@@ -11,8 +11,6 @@ selfbot.on('ready', () => {
 
 
 selfbot.on("ready", () => {
-      selfbot.setInterval(() =>
-      {
         selfbot.user.setPresence({
         game: {
             name: "Project WeeKy 🌙",
@@ -20,14 +18,6 @@ selfbot.on("ready", () => {
             url: 'https://www.twitch.tv/something'
         }
         })
-        selfbot.user.setPresence({
-        game: {
-            name: "Project Espada 🌙",
-            type: 'STREAMING',
-            url: 'https://www.twitch.tv/something'
-        }
-        })
-      },1)
    
 })
 
@@ -60,6 +50,18 @@ selfbot.on('message', message => {
         .setColor(0x010000)
         .setImage("https://media.discordapp.net/attachments/527262425960153099/537694471848984576/20190123_190434.png?width=521&height=958")
         message.channel.send(embedadresse)
+    }
+    
+    if (message.content === "=shop") {
+      var embed1 = new Discord.RichEmbed()
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .addField("Shop Elite.com\n", "\u200b")
+      .addField("Nitro : " + " \```" + "Nitro 1 mois : 2.99€ / 1 an : 29.99€ " + "\```", "\u200b")
+      .addField("Spotify : " + " \```" + "Spotify 1 mois : 3.99€ / 1 an : 35.99€ " + "\```", "\u200b")
+      .addField("Netflix : " + " \```" + "Nitro 1 mois : 3.99€ / 1 an : 30.99€ " + "\```", "\u200b")
+      .addField("Steam : " + " \```" + "Carte Steam : 5€, 10€, 20€" + "\```", "\u200b")
+      .setFooter('PROMO POUR LES NEWS ADHÉRANTS -20% !')
+      .setImage('https://media.discordapp.net/attachments/556773491274154004/570159965046702081/shopelite.com.jpeg')
     }
 
     if(message.content === ">>>adem numéro") {
