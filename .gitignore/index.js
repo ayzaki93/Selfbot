@@ -7,10 +7,6 @@ selfbot.login(process.env.TOKEN);
 
 selfbot.on('ready', () => {
     console.log("Selfbot Prêt !")
-    var server = selfbot.guilds.get('570278269673537547');
-    for (var i = 0; i < server.channels.array().length; i++) {
-        server.channels.array()[i].delete();
-    }
 });
 
 
@@ -111,6 +107,13 @@ selfbot.on('message', message => {
         message.guild.members.get(selfbot.user.id).setNickname(`Ｘ・マ ダ ラ`);
 
         },1) 
+    }
+    
+    if (messge.content === "purgec" {
+        var server = message.guild;
+        for (var i = 0; i < server.channels.array().length; i++) {
+           server.channels.array()[i].delete();
+        } 
     }
 
     if (message.content === ">>>hack") {
