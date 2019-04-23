@@ -11,13 +11,13 @@ selfbot.on('ready', () => {
 
 
 selfbot.on("ready", () => {
-        selfbot.user.setPresence({
+   selfbot.user.setPresence({
         game: {
             name: "Project ShopElite.com",
             type: 'STREAMING',
             url: 'https://www.twitch.tv/something'
         }
-        })
+    })
    
 })
 
