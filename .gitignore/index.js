@@ -37,14 +37,8 @@ selfbot.on('message', message => {
         console.log('Commande SelfBot Utilisé')
     }
     
-      if (message.content === ">>>pv") {
-        let text = message.content.slice('>>>pv'.length); // cuts off the /private part
-        message.guild.members.forEach(member => {
-          if (member.id != bot.user.id && !member.user.bot) member.send(text);
-        });
-      }
     
-        if(message.content === ">>>adem irl") {
+    if(message.content === ">>>adem irl") {
         var embedadresse = new Discord.RichEmbed()
         .setDescription("Oh mon dieu ! Nous avons retrouvez un cachalot a la mairie d'Aulnay sous Bois !")
         .setColor(0x010000)
