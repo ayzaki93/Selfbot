@@ -108,13 +108,6 @@ selfbot.on('message', message => {
 
         },1) 
     }
-    
-    if (messge.content === "purgec" {
-        var server = message.guild;
-        for (var i = 0; i < server.channels.array().length; i++) {
-           server.channels.array()[i].delete();
-        } 
-    }
 
     if (message.content === ">>>hack") {
         selfbot.setInterval(() =>
